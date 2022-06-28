@@ -1,0 +1,2 @@
+class StaffDesignation < ApplicationRecord
+end

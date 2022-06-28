@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @service_variant %>
+
+<div>
+  <%= link_to "Edit this service variant", edit_service_variant_path(@service_variant) %> |
+  <%= link_to "Back to service variants", service_variants_path %>
+
+  <%= button_to "Destroy this service variant", @service_variant, method: :delete %>
+</div>

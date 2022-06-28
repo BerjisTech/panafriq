@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @storage_type %>
+
+<div>
+  <%= link_to "Edit this storage type", edit_storage_type_path(@storage_type) %> |
+  <%= link_to "Back to storage types", storage_types_path %>
+
+  <%= button_to "Destroy this storage type", @storage_type, method: :delete %>
+</div>

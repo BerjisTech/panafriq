@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @trip_fine %>
+
+<div>
+  <%= link_to "Edit this trip fine", edit_trip_fine_path(@trip_fine) %> |
+  <%= link_to "Back to trip fines", trip_fines_path %>
+
+  <%= button_to "Destroy this trip fine", @trip_fine, method: :delete %>
+</div>

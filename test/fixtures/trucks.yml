@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trucker_id: 
+  truck_type: 
+  truck_size: 1.5
+  truck_age: 1.5
+  trips: 1
+  number_plate: MyString
+  registration_country: MyString
+  available: false
+
+two:
+  trucker_id: 
+  truck_type: 
+  truck_size: 1.5
+  truck_age: 1.5
+  trips: 1
+  number_plate: MyString
+  registration_country: MyString
+  available: false

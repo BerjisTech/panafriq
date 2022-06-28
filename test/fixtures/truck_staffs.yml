@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  trucker_id: 
+  invited_on: 2022-06-28 17:39:09
+  joined_on: 2022-06-28 17:39:09
+  is_active: false
+  left_on: 2022-06-28 17:39:09
+  reason_for_leaving: MyText
+  staff_designation: 
+  invited_by: 
+
+two:
+  user_id: 
+  trucker_id: 
+  invited_on: 2022-06-28 17:39:09
+  joined_on: 2022-06-28 17:39:09
+  is_active: false
+  left_on: 2022-06-28 17:39:09
+  reason_for_leaving: MyText
+  staff_designation: 
+  invited_by: 

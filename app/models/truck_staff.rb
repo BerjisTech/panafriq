@@ -1,0 +1,2 @@
+class TruckStaff < ApplicationRecord
+end

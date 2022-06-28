@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Storage locations</h1>
+
+<div id="storage_locations">
+  <% @storage_locations.each do |storage_location| %>
+    <%= render storage_location %>
+    <p>
+      <%= link_to "Show this storage location", storage_location %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New storage location", new_storage_location_path %>

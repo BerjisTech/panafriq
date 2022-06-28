@@ -1,0 +1,2 @@
+class StorageLocation < ApplicationRecord
+end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Trip fines</h1>
+
+<div id="trip_fines">
+  <% @trip_fines.each do |trip_fine| %>
+    <%= render trip_fine %>
+    <p>
+      <%= link_to "Show this trip fine", trip_fine %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New trip fine", new_trip_fine_path %>

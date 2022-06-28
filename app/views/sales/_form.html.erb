@@ -1,0 +1,57 @@
+<%= form_with(model: sale) do |form| %>
+  <% if sale.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+        <% sale.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :company_id, style: "display: block" %>
+    <%= form.text_field :company_id %>
+  </div>
+
+  <div>
+    <%= form.label :is_product, style: "display: block" %>
+    <%= form.check_box :is_product %>
+  </div>
+
+  <div>
+    <%= form.label :is_service, style: "display: block" %>
+    <%= form.check_box :is_service %>
+  </div>
+
+  <div>
+    <%= form.label :products, style: "display: block" %>
+    <%= form.text_field :products %>
+  </div>
+
+  <div>
+    <%= form.label :services, style: "display: block" %>
+    <%= form.text_field :services %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :customer_id, style: "display: block" %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

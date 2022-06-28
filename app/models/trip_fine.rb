@@ -1,0 +1,2 @@
+class TripFine < ApplicationRecord
+end

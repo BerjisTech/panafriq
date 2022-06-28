@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Storage types</h1>
+
+<div id="storage_types">
+  <% @storage_types.each do |storage_type| %>
+    <%= render storage_type %>
+    <p>
+      <%= link_to "Show this storage type", storage_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New storage type", new_storage_type_path %>

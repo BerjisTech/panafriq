@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Storage staffs</h1>
+
+<div id="storage_staffs">
+  <% @storage_staffs.each do |storage_staff| %>
+    <%= render storage_staff %>
+    <p>
+      <%= link_to "Show this storage staff", storage_staff %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New storage staff", new_storage_staff_path %>

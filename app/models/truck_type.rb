@@ -1,0 +1,2 @@
+class TruckType < ApplicationRecord
+end

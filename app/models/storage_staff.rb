@@ -1,0 +1,2 @@
+class StorageStaff < ApplicationRecord
+end

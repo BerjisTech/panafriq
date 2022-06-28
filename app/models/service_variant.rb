@@ -1,0 +1,2 @@
+class ServiceVariant < ApplicationRecord
+end

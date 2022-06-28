@@ -1,0 +1,62 @@
+<%= form_with(model: storage_staff) do |form| %>
+  <% if storage_staff.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(storage_staff.errors.count, "error") %> prohibited this storage_staff from being saved:</h2>
+
+      <ul>
+        <% storage_staff.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :storage_id, style: "display: block" %>
+    <%= form.text_field :storage_id %>
+  </div>
+
+  <div>
+    <%= form.label :invited_on, style: "display: block" %>
+    <%= form.datetime_field :invited_on %>
+  </div>
+
+  <div>
+    <%= form.label :joined_on, style: "display: block" %>
+    <%= form.datetime_field :joined_on %>
+  </div>
+
+  <div>
+    <%= form.label :is_active, style: "display: block" %>
+    <%= form.check_box :is_active %>
+  </div>
+
+  <div>
+    <%= form.label :left_on, style: "display: block" %>
+    <%= form.datetime_field :left_on %>
+  </div>
+
+  <div>
+    <%= form.label :reason_for_leaving, style: "display: block" %>
+    <%= form.text_area :reason_for_leaving %>
+  </div>
+
+  <div>
+    <%= form.label :staff_designation, style: "display: block" %>
+    <%= form.text_field :staff_designation %>
+  </div>
+
+  <div>
+    <%= form.label :invited_by, style: "display: block" %>
+    <%= form.text_field :invited_by %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

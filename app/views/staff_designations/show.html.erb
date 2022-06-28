@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @staff_designation %>
+
+<div>
+  <%= link_to "Edit this staff designation", edit_staff_designation_path(@staff_designation) %> |
+  <%= link_to "Back to staff designations", staff_designations_path %>
+
+  <%= button_to "Destroy this staff designation", @staff_designation, method: :delete %>
+</div>

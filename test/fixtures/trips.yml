@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck_id: 
+  driver_id: 
+  departure: MyText
+  destination: MyText
+  trip_date: 2022-06-28 18:06:26
+  departure_time: 2022-06-28 18:06:26
+  arrival_time: 2022-06-28 18:06:26
+  goods_status: MyString
+  customer_pay: 1.5
+  fine: 1.5
+  final_truck_pay: 1.5
+  trucker_pay: 1.5
+  driver_cut: 1.5
+
+two:
+  truck_id: 
+  driver_id: 
+  departure: MyText
+  destination: MyText
+  trip_date: 2022-06-28 18:06:26
+  departure_time: 2022-06-28 18:06:26
+  arrival_time: 2022-06-28 18:06:26
+  goods_status: MyString
+  customer_pay: 1.5
+  fine: 1.5
+  final_truck_pay: 1.5
+  trucker_pay: 1.5
+  driver_cut: 1.5

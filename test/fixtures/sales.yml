@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  is_product: false
+  is_service: false
+  products: 
+  services: 
+  amount: 1.5
+  status: 1
+  customer_id: 
+
+two:
+  company_id: 
+  is_product: false
+  is_service: false
+  products: 
+  services: 
+  amount: 1.5
+  status: 1
+  customer_id: 

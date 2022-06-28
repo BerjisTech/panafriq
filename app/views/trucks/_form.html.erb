@@ -1,0 +1,57 @@
+<%= form_with(model: truck) do |form| %>
+  <% if truck.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+
+      <ul>
+        <% truck.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :trucker_id, style: "display: block" %>
+    <%= form.text_field :trucker_id %>
+  </div>
+
+  <div>
+    <%= form.label :truck_type, style: "display: block" %>
+    <%= form.text_field :truck_type %>
+  </div>
+
+  <div>
+    <%= form.label :truck_size, style: "display: block" %>
+    <%= form.text_field :truck_size %>
+  </div>
+
+  <div>
+    <%= form.label :truck_age, style: "display: block" %>
+    <%= form.text_field :truck_age %>
+  </div>
+
+  <div>
+    <%= form.label :trips, style: "display: block" %>
+    <%= form.number_field :trips %>
+  </div>
+
+  <div>
+    <%= form.label :number_plate, style: "display: block" %>
+    <%= form.text_field :number_plate %>
+  </div>
+
+  <div>
+    <%= form.label :registration_country, style: "display: block" %>
+    <%= form.text_field :registration_country %>
+  </div>
+
+  <div>
+    <%= form.label :available, style: "display: block" %>
+    <%= form.check_box :available %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

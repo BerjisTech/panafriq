@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  storage_id: 
+  products: 1
+  services: 1
+  name: MyText
+  user_id: 
+  storage_size: 1
+  storage_type: 
+  storage_price: 1.5
+
+two:
+  storage_id: 
+  products: 1
+  services: 1
+  name: MyText
+  user_id: 
+  storage_size: 1
+  storage_type: 
+  storage_price: 1.5

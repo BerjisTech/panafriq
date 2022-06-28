@@ -1,0 +1,42 @@
+<%= form_with(model: company_location) do |form| %>
+  <% if company_location.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(company_location.errors.count, "error") %> prohibited this company_location from being saved:</h2>
+
+      <ul>
+        <% company_location.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :company_id, style: "display: block" %>
+    <%= form.text_field :company_id %>
+  </div>
+
+  <div>
+    <%= form.label :products, style: "display: block" %>
+    <%= form.number_field :products %>
+  </div>
+
+  <div>
+    <%= form.label :services, style: "display: block" %>
+    <%= form.number_field :services %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
