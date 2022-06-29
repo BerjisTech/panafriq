@@ -23,3 +23,7 @@ Things you may want to cover:
 
 * ToDo
 -[] Change format json to `render json: Controller.all, status: :ok` for method delete in rails
+
+* NOTE: Important stuff
+- rfce for react template files
+
