@@ -1,1 +1,3 @@
-json.partial! "truckers/trucker", trucker: @trucker
+# frozen_string_literal: true
+
+json.partial! 'truckers/trucker', trucker: @trucker

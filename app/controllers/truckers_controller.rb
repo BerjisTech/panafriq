@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TruckersController < ApplicationController
-  before_action :set_trucker, only: %i[ show edit update destroy ]
+  before_action :set_trucker, only: %i[show edit update destroy]
 
   # GET /truckers or /truckers.json
   def index
@@ -7,8 +9,7 @@ class TruckersController < ApplicationController
   end
 
   # GET /truckers/1 or /truckers/1.json
-  def show
-  end
+  def show; end
 
   # GET /truckers/new
   def new
@@ -16,8 +17,7 @@ class TruckersController < ApplicationController
   end
 
   # GET /truckers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /truckers or /truckers.json
   def create
@@ -25,7 +25,7 @@ class TruckersController < ApplicationController
 
     respond_to do |format|
       if @trucker.save
-        format.html { redirect_to trucker_url(@trucker), notice: "Trucker was successfully created." }
+        format.html { redirect_to trucker_url(@trucker), notice: 'Trucker was successfully created.' }
         format.json { render :show, status: :created, location: @trucker }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TruckersController < ApplicationController
   def update
     respond_to do |format|
       if @trucker.update(trucker_params)
-        format.html { redirect_to trucker_url(@trucker), notice: "Trucker was successfully updated." }
+        format.html { redirect_to trucker_url(@trucker), notice: 'Trucker was successfully updated.' }
         format.json { render :show, status: :ok, location: @trucker }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class TruckersController < ApplicationController
     @trucker.destroy
 
     respond_to do |format|
-      format.html { redirect_to truckers_url, notice: "Trucker was successfully destroyed." }
+      format.html { redirect_to truckers_url, notice: 'Trucker was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trucker
-      @trucker = Trucker.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def trucker_params
-      params.require(:trucker).permit(:user_id, :is_company, :country, :truck_staff, :drivers)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trucker
+    @trucker = Trucker.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def trucker_params
+    params.require(:trucker).permit(:user_id, :is_company, :country, :truck_staff, :drivers)
+  end
 end

@@ -1,45 +1,51 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class TruckersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @trucker = truckers(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get truckers_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_trucker_url
     assert_response :success
   end
 
-  test "should create trucker" do
-    assert_difference("Trucker.count") do
-      post truckers_url, params: { trucker: { country: @trucker.country, drivers: @trucker.drivers, is_company: @trucker.is_company, truck_staff: @trucker.truck_staff, user_id: @trucker.user_id } }
+  test 'should create trucker' do
+    assert_difference('Trucker.count') do
+      post truckers_url,
+           params: { trucker: { country: @trucker.country, drivers: @trucker.drivers, is_company: @trucker.is_company,
+                                truck_staff: @trucker.truck_staff, user_id: @trucker.user_id } }
     end
 
     assert_redirected_to trucker_url(Trucker.last)
   end
 
-  test "should show trucker" do
+  test 'should show trucker' do
     get trucker_url(@trucker)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_trucker_url(@trucker)
     assert_response :success
   end
 
-  test "should update trucker" do
-    patch trucker_url(@trucker), params: { trucker: { country: @trucker.country, drivers: @trucker.drivers, is_company: @trucker.is_company, truck_staff: @trucker.truck_staff, user_id: @trucker.user_id } }
+  test 'should update trucker' do
+    patch trucker_url(@trucker),
+          params: { trucker: { country: @trucker.country, drivers: @trucker.drivers, is_company: @trucker.is_company,
+                               truck_staff: @trucker.truck_staff, user_id: @trucker.user_id } }
     assert_redirected_to trucker_url(@trucker)
   end
 
-  test "should destroy trucker" do
-    assert_difference("Trucker.count", -1) do
+  test 'should destroy trucker' do
+    assert_difference('Trucker.count', -1) do
       delete trucker_url(@trucker)
     end
 

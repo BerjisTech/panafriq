@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StorageTypesController < ApplicationController
-  before_action :set_storage_type, only: %i[ show edit update destroy ]
+  before_action :set_storage_type, only: %i[show edit update destroy]
 
   # GET /storage_types or /storage_types.json
   def index
@@ -7,8 +9,7 @@ class StorageTypesController < ApplicationController
   end
 
   # GET /storage_types/1 or /storage_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /storage_types/new
   def new
@@ -16,8 +17,7 @@ class StorageTypesController < ApplicationController
   end
 
   # GET /storage_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /storage_types or /storage_types.json
   def create
@@ -25,7 +25,7 @@ class StorageTypesController < ApplicationController
 
     respond_to do |format|
       if @storage_type.save
-        format.html { redirect_to storage_type_url(@storage_type), notice: "Storage type was successfully created." }
+        format.html { redirect_to storage_type_url(@storage_type), notice: 'Storage type was successfully created.' }
         format.json { render :show, status: :created, location: @storage_type }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class StorageTypesController < ApplicationController
   def update
     respond_to do |format|
       if @storage_type.update(storage_type_params)
-        format.html { redirect_to storage_type_url(@storage_type), notice: "Storage type was successfully updated." }
+        format.html { redirect_to storage_type_url(@storage_type), notice: 'Storage type was successfully updated.' }
         format.json { render :show, status: :ok, location: @storage_type }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class StorageTypesController < ApplicationController
     @storage_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to storage_types_url, notice: "Storage type was successfully destroyed." }
+      format.html { redirect_to storage_types_url, notice: 'Storage type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_storage_type
-      @storage_type = StorageType.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def storage_type_params
-      params.require(:storage_type).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_storage_type
+    @storage_type = StorageType.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def storage_type_params
+    params.require(:storage_type).permit(:text)
+  end
 end

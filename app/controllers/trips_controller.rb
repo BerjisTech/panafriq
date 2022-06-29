@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TripsController < ApplicationController
-  before_action :set_trip, only: %i[ show edit update destroy ]
+  before_action :set_trip, only: %i[show edit update destroy]
 
   # GET /trips or /trips.json
   def index
@@ -7,8 +9,7 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1 or /trips/1.json
-  def show
-  end
+  def show; end
 
   # GET /trips/new
   def new
@@ -16,8 +17,7 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trips or /trips.json
   def create
@@ -25,7 +25,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to trip_url(@trip), notice: "Trip was successfully created." }
+        format.html { redirect_to trip_url(@trip), notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.html { redirect_to trip_url(@trip), notice: "Trip was successfully updated." }
+        format.html { redirect_to trip_url(@trip), notice: 'Trip was successfully updated.' }
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,21 @@ class TripsController < ApplicationController
     @trip.destroy
 
     respond_to do |format|
-      format.html { redirect_to trips_url, notice: "Trip was successfully destroyed." }
+      format.html { redirect_to trips_url, notice: 'Trip was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trip
-      @trip = Trip.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def trip_params
-      params.require(:trip).permit(:truck_id, :driver_id, :departure, :destination, :trip_date, :departure_time, :arrival_time, :goods_status, :customer_pay, :fine, :final_truck_pay, :trucker_pay, :driver_cut)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trip
+    @trip = Trip.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def trip_params
+    params.require(:trip).permit(:truck_id, :driver_id, :departure, :destination, :trip_date, :departure_time,
+                                 :arrival_time, :goods_status, :customer_pay, :fine, :final_truck_pay, :trucker_pay, :driver_cut)
+  end
 end

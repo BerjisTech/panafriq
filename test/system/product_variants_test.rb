@@ -1,57 +1,59 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class ProductVariantsTest < ApplicationSystemTestCase
   setup do
     @product_variant = product_variants(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit product_variants_url
-    assert_selector "h1", text: "Product variants"
+    assert_selector 'h1', text: 'Product variants'
   end
 
-  test "should create product variant" do
+  test 'should create product variant' do
     visit product_variants_url
-    click_on "New product variant"
+    click_on 'New product variant'
 
-    check "Available" if @product_variant.available
-    fill_in "Category", with: @product_variant.category
-    fill_in "Company", with: @product_variant.company_id
-    fill_in "Description", with: @product_variant.description
-    fill_in "Name", with: @product_variant.name
-    fill_in "Offered locations", with: @product_variant.offered_locations
-    fill_in "Price", with: @product_variant.price
-    fill_in "Product", with: @product_variant.product_id
-    fill_in "Quantity", with: @product_variant.quantity
-    click_on "Create Product variant"
+    check 'Available' if @product_variant.available
+    fill_in 'Category', with: @product_variant.category
+    fill_in 'Company', with: @product_variant.company_id
+    fill_in 'Description', with: @product_variant.description
+    fill_in 'Name', with: @product_variant.name
+    fill_in 'Offered locations', with: @product_variant.offered_locations
+    fill_in 'Price', with: @product_variant.price
+    fill_in 'Product', with: @product_variant.product_id
+    fill_in 'Quantity', with: @product_variant.quantity
+    click_on 'Create Product variant'
 
-    assert_text "Product variant was successfully created"
-    click_on "Back"
+    assert_text 'Product variant was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Product variant" do
+  test 'should update Product variant' do
     visit product_variant_url(@product_variant)
-    click_on "Edit this product variant", match: :first
+    click_on 'Edit this product variant', match: :first
 
-    check "Available" if @product_variant.available
-    fill_in "Category", with: @product_variant.category
-    fill_in "Company", with: @product_variant.company_id
-    fill_in "Description", with: @product_variant.description
-    fill_in "Name", with: @product_variant.name
-    fill_in "Offered locations", with: @product_variant.offered_locations
-    fill_in "Price", with: @product_variant.price
-    fill_in "Product", with: @product_variant.product_id
-    fill_in "Quantity", with: @product_variant.quantity
-    click_on "Update Product variant"
+    check 'Available' if @product_variant.available
+    fill_in 'Category', with: @product_variant.category
+    fill_in 'Company', with: @product_variant.company_id
+    fill_in 'Description', with: @product_variant.description
+    fill_in 'Name', with: @product_variant.name
+    fill_in 'Offered locations', with: @product_variant.offered_locations
+    fill_in 'Price', with: @product_variant.price
+    fill_in 'Product', with: @product_variant.product_id
+    fill_in 'Quantity', with: @product_variant.quantity
+    click_on 'Update Product variant'
 
-    assert_text "Product variant was successfully updated"
-    click_on "Back"
+    assert_text 'Product variant was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Product variant" do
+  test 'should destroy Product variant' do
     visit product_variant_url(@product_variant)
-    click_on "Destroy this product variant", match: :first
+    click_on 'Destroy this product variant', match: :first
 
-    assert_text "Product variant was successfully destroyed"
+    assert_text 'Product variant was successfully destroyed'
   end
 end

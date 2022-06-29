@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class DriversController < ApplicationController
-  before_action :set_driver, only: %i[ show edit update destroy ]
+  before_action :set_driver, only: %i[show edit update destroy]
 
   # GET /drivers or /drivers.json
   def index
@@ -7,8 +9,7 @@ class DriversController < ApplicationController
   end
 
   # GET /drivers/1 or /drivers/1.json
-  def show
-  end
+  def show; end
 
   # GET /drivers/new
   def new
@@ -16,8 +17,7 @@ class DriversController < ApplicationController
   end
 
   # GET /drivers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /drivers or /drivers.json
   def create
@@ -25,7 +25,7 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to driver_url(@driver), notice: "Driver was successfully created." }
+        format.html { redirect_to driver_url(@driver), notice: 'Driver was successfully created.' }
         format.json { render :show, status: :created, location: @driver }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class DriversController < ApplicationController
   def update
     respond_to do |format|
       if @driver.update(driver_params)
-        format.html { redirect_to driver_url(@driver), notice: "Driver was successfully updated." }
+        format.html { redirect_to driver_url(@driver), notice: 'Driver was successfully updated.' }
         format.json { render :show, status: :ok, location: @driver }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,21 @@ class DriversController < ApplicationController
     @driver.destroy
 
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: "Driver was successfully destroyed." }
+      format.html { redirect_to drivers_url, notice: 'Driver was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_driver
-      @driver = Driver.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def driver_params
-      params.require(:driver).permit(:user_id, :trucker_id, :invited_on, :joined_on, :is_active, :left_on, :reason_for_leaving, :staff_designation, :invited_by)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_driver
+    @driver = Driver.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def driver_params
+    params.require(:driver).permit(:user_id, :trucker_id, :invited_on, :joined_on, :is_active, :left_on,
+                                   :reason_for_leaving, :staff_designation, :invited_by)
+  end
 end
