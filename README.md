@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ToDo
+-[] Change format json to `render json: Controller.all, status: :ok` for method delete in rails
