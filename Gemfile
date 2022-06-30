@@ -87,3 +87,5 @@ group :test do
 end
 
 # gem 'ruby-lsp', '~> 0.1.0', group: :development
+
+gem "devise-jwt", "~> 0.9.0"
