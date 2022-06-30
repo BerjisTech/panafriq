@@ -1,38 +1,45 @@
-import React, { useEffect } from 'react'
-import { AppDispatch } from '../../app/store'
-import { useDispatch } from 'react-redux'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { fetchProductCategories } from './productCategoryAPI'
-import { fetchProductCategoriesAsync, selectProductCategories, selectProductCategoriesStatus, Statuses } from './productCategorySlice'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from "../../app/hooks";
+import { AppDispatch } from '../../app/store';
+import ProductCategory from './ProductCategory';
+import ProductCategoryForm from './ProductCategoryForm';
+import { fetchProductCategoriesAsync, selectProductCategories, selectStatus, Statuses } from './productCategorySlice';
 
-function ProductCategory() {
-  const productCategories = useAppSelector(selectProductCategories)
-  const status = useAppSelector(selectProductCategoriesStatus)
-  const dispatch = useDispatch<AppDispatch>()
+function ProductCategories() {
+  const productCategories = useAppSelector(selectProductCategories);
+  const status = useAppSelector(selectStatus)
+  const dispatch = useDispatch<AppDispatch>();
+
+  const [productCategoryToEdit, setProductCategoryToEdit] = useState(0);
 
   useEffect(() => {
-    dispatch(fetchProductCategoriesAsync())
+    dispatch(fetchProductCategoriesAsync());
   }, [dispatch])
 
   let contents;
 
-  if (status !== Statuses.Success) {
+  if (status !== Statuses.UpToDate) {
     contents = <div>{status}</div>
   } else {
-    contents = <div className='card'>
-      <div className='card-body'>
+    contents = <div className="card">
+      <div className="card-body">
         <h3>{status}</h3>
-        {productCategories && productCategories.length > 0 && productCategories.map(ProductCategory => <div key={productCategory.id}>{productCategory.name}</div>)}
+        {productCategories && productCategories.length > 0 && productCategories.map(productCategory => {
+          return <div key={productCategory.id} style={{ margin: "5em" }}>
+            <ProductCategory
+              dispatch={dispatch}
+              productCategory={productCategory}
+            />
+          </div>
+        })}
       </div>
     </div>
   }
 
-  return (
-    <div>
-      <div>Product Categories</div>
-      <h3>{ }</h3>
-    </div>
-  )
+  return <div><h1>ProductCategories</h1>
+    {contents}
+  </div>
 }
 
-export default ProductCategory
+export default ProductCategories;

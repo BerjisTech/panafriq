@@ -1,76 +1,80 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import produce from "immer";
-import { RootState } from "../../app/store";
-import { fetchProductCategories } from "./productCategoryAPI";
+import { RootState } from "../../app/store"
+import { fetchProductCategories } from './productCategoryAPI'
 
 export enum Statuses {
     Initial = "Not Fetched",
-    Loading = "Loading",
-    Success = "Success",
-    Error = "Error",
-    NotFound = "Not Found",
-    NotAuthorized = "Not Authorized",
-    NotAvailable = "Not Available",
-    Deleted = "Deleted"
+    Loading = "Loading...",
+    UpToDate = "Up To Date",
+    Deleted = "Deleted",
+    Error = "Error"
+}
+
+export interface ProductCategoryFormData {
+    productCategory: {
+        category?: string;
+    }
 }
 
 export interface ProductCategoryState {
-    name?: string;
+    category?: number;
 }
 
 export interface ProductCategoriesState {
-    productCategories: ProductCategoryState[],
-    status: string
+    productCategories: ProductCategoryState[];
+    status: string;
 }
 
 const initialState: ProductCategoriesState = {
     productCategories: [
         {
-            name: ""
+            category: 0
         }
     ],
     status: Statuses.Initial
 }
 
-export const fetchproductCategoriesAsync = createAsyncThunk(
-    'productCategories/fetchProductCategory',
+export const fetchProductCategoriesAsync = createAsyncThunk(
+    'productCategories/fetchProductCategories',
     async () => {
         const response = await fetchProductCategories();
-        const data = await response.json();
-        return data;
+        return response;
     }
 )
 
-export const ProductCategorySlice = createSlice({
+export const productCategorySlice = createSlice({
     name: "productCategories",
     initialState,
+    /**
+     * Synchronous actions
+     */
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // While you wait
-            .addCase(fetchproductCategoriesAsync.pending, (state, action) => {
-                return produce(state, draftState => {
+            .addCase(fetchProductCategoriesAsync.pending, (state) => {
+                return produce(state, (draftState) => {
                     draftState.status = Statuses.Loading;
                 })
             })
-            // When you get the data
-            .addCase(fetchproductCategoriesAsync.fulfilled, (state, action) => {
-                return produce(state, draftState => {
-                    draftState.status = Statuses.Success;
+            .addCase(fetchProductCategoriesAsync.fulfilled, (state, action) => {
+                return produce(state, (draftState) => {
                     draftState.productCategories = action.payload;
+                    draftState.status = Statuses.UpToDate;
                 })
             })
-            // When you get an error
-            .addCase(fetchproductCategoriesAsync.pending, (state, action) => {
-                return produce(state, draftState => {
+            .addCase(fetchProductCategoriesAsync.rejected, (state) => {
+                return produce(state, (draftState) => {
                     draftState.status = Statuses.Error;
                 })
             })
     }
 })
 
-export const {} = ProductCategorySlice.actions;
-export const selectProductCategories = (state: RootState) => state.productCategories.productCategories;
-export const selectStatus = (state: RootState) => state.productCategories.status;
-export default ProductCategorySlice.reducer;
+export const { } = productCategorySlice.actions;
 
+export const selectProductCategories = (state: RootState) => state.productCategories.productCategories;
+
+export const selectStatus = (state: RootState) => state.productCategories.status;
+
+export default productCategorySlice.reducer;
